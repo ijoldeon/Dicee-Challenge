@@ -89,3 +89,4 @@ resetButton.addEventListener("click", function () {
   result.textContent = "주사위를 굴려보세요!";
   message.textContent = "점수가 초기화되었습니다!";
 });
+// 주석달기

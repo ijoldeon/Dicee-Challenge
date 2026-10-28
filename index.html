@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dicee Game</title>
+
+    <!-- CSS 연결 -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- 글꼴 -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 id="result">주사위를 굴려보세요!</h1>
+
+      <!-- 플레이어 1 -->
+      <div class="dice">
+        <p>Player 1</p>
+        <span id="flag1"></span>
+        <img class="img1" src="images/dice1.png" alt="플레이어 1 주사위" />
+
+        <p>점수: <span id="score1">0</span></p>
+      </div>
+
+      <!-- 플레이어 2 -->
+      <div class="dice">
+        <p>Player 2</p>
+        <span id="flag2"></span>
+        <img class="img2" src="images/dice1.png" alt="플레이어 2 주사위" />
+
+        <p>점수: <span id="score2">0</span></p>
+      </div>
+
+      <!-- 버튼 -->
+      <div class="buttons">
+        <button id="rollButton">주사위 굴리기</button>
+        <button id="resetButton">점수 초기화</button>
+      </div>
+
+      <p id="message">버튼을 눌러 게임을 시작하세요!</p>
+    </div>
+
+    <footer>© 2026 Dicee Game</footer>
+
+    <!-- JavaScript 연결 -->
+    <script src="app.js"></script>
+  </body>
+</html>

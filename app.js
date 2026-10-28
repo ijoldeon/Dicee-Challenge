@@ -17,8 +17,20 @@ const message = document.querySelector("#message");
 let score1 = 0;
 let score2 = 0;
 
+// 최대 점수 20점
+const MAX_SCORE = 20;
+
+// 게임 종료 여부
+let gameOver = false;
+
 // 3. 주사위 굴리기 버튼
 rollButton.addEventListener("click", function () {
+  // 게임이 종료되었다면 진행하지 않음
+  if (gameOver) {
+    message.textContent = "게임 종료! 점수 초기화를 눌러주세요.";
+    return;
+  }
+
   // 1부터 6까지 랜덤 숫자 만들기
   const random1 = Math.floor(Math.random() * 6) + 1;
   const random2 = Math.floor(Math.random() * 6) + 1;
@@ -62,13 +74,31 @@ rollButton.addEventListener("click", function () {
   // 5. 누적 점수 화면에 표시
   score1Text.textContent = score1;
   score2Text.textContent = score2;
+
+  // 6. 20점 도달 시 게임 종료
+  if (score1 >= MAX_SCORE || score2 >= MAX_SCORE) {
+    gameOver = true;
+
+    if (score1 >= MAX_SCORE) {
+      result.textContent = "🏆 Player 1 최종 우승!";
+      flag1.textContent = "🏆";
+    } else {
+      result.textContent = "🏆 Player 2 최종 우승!";
+      flag2.textContent = "🏆";
+    }
+
+    message.textContent = "20점 달성! 점수 초기화 버튼으로 다시 시작하세요.";
+  }
 });
 
-// 6. 점수 초기화 버튼
+// 7. 점수 초기화 버튼
 resetButton.addEventListener("click", function () {
   // 점수 0으로 초기화
   score1 = 0;
   score2 = 0;
+
+  // 게임 종료 상태 해제
+  gameOver = false;
 
   score1Text.textContent = score1;
   score2Text.textContent = score2;
@@ -89,4 +119,3 @@ resetButton.addEventListener("click", function () {
   result.textContent = "주사위를 굴려보세요!";
   message.textContent = "점수가 초기화되었습니다!";
 });
-// 주석달기
